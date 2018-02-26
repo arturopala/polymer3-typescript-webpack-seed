@@ -1,5 +1,5 @@
 import * as kebabCase from 'lodash/fp/kebabCase';
-import { MyApp } from './app';
+import { MyApp } from './components/layout/app';
 
 // add custom elements here
 const elements = {

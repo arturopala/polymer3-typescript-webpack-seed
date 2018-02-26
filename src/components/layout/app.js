@@ -18,14 +18,11 @@ export class MyApp extends PolymerElement {
     static get template() { return html`
     <style>
       :host {
-        --app-primary-color: #4285f4;
-        --app-secondary-color: black;
-
         display: block;
       }
 
       app-header {
-        color: #fff;
+        color: white;
         background-color: var(--app-primary-color);
       }
 
@@ -39,15 +36,14 @@ export class MyApp extends PolymerElement {
 
       app-drawer {
         --app-drawer-content-container: {
-          background-color: #B0BEC5;
+          background-color: var(--app-drawer-background-color);
         }
       }
-
     </style>
 
     <app-drawer-layout fullbleed>
       <app-drawer slot="drawer">
-        drawer-content
+        <slot name="drawercontent"></slot>
       </app-drawer>
       <app-header-layout>
         <app-header slot="header">
@@ -65,14 +61,14 @@ export class MyApp extends PolymerElement {
     }
 
     static get properties() {
-        return {
-          name: {
-            type: String
-          }
-        };
-      }
+      return {
+        name: {
+          type: String
+        }
+      };
+    }
 
     ready() {
-        super.ready();
+      super.ready();
     }
 }

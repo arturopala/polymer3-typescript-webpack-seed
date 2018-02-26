@@ -15,6 +15,7 @@
     "@polymer/paper-icon-button": "next",
     "@polymer/polymer": "next",
     "@webcomponents/webcomponentsjs": "next",
+    "deeplearn": "^0.5.0",
     "lodash": "^4.17.5"
   },
   "scripts": {

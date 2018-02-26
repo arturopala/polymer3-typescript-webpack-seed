@@ -5,22 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Template app</title>
+    <title>ML Workbench</title>
     <script src="static/webcomponents-loader.js"></script>
-  <style>
-    body {
-        margin: 0;
-        font-family: 'Roboto', 'Noto', sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-        background-color: #eeeeee;
-    }
-  </style>
+    <custom-style>
+      <style>
+        html {
+          --app-primary-color: var(--google-blue-500);
+          --app-secondary-color: black;
+          --app-drawer-background-color: var(--google-grey-300);
+          --app-background-color: white;
+        }
+        body {
+            margin: 0;
+            font-family: 'Roboto', 'Noto', sans-serif;
+            line-height: 1.5;
+            min-height: 100vh;
+            background-color: var(--app-background-color);
+        }
+        .box {
+          padding: 16px;
+        }
+      </style>
+    <custom-style>
 </head>
 
 <body>
-    <my-app name="Template app">
-        Hello World!
+    <my-app name="ML Workbench">
+      <div class="box">
+        Hello, ML!
+      </div>
+      <div slot="drawercontent" class="box">
+        Here are dragons.
+      </div>
     </my-app>
     <script src="app.js"></script>
 </body>
