@@ -1,7 +1,7 @@
 {
   "name": "polymer-template",
   "version": "1.0.0",
-  "description": "polymer 2.x + webpack + typescript template",
+  "description": "polymer 3.x + webpack + typescript template",
   "author": "arturopala",
   "main": "index.js",
   "license": "MIT",
