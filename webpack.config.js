@@ -17,14 +17,22 @@ module.exports = {
     rules: [
       {
         test: /\.(html)$/,
-        use: {
-          loader: 'html-loader'
-        }
+        use: 'html-loader'
       },
       {
         test: /\.ts?$/,
         use: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2016']
+          }
+        }
       }
     ]
   },
@@ -33,17 +41,19 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist'], { root: path.resolve(__dirname, '..') }),
-    new HtmlWebpackPlugin({
-      template: './index.html'
-    }),
     new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'src/index.html'),
+        to: 'index.html'
+      },
       {
         from: path.resolve(__dirname, './static'),
         to: 'static',
         ignore: ['.*']
       },
       {
-        from: path.resolve(__dirname, 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js')
+        from: path.resolve(__dirname, 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js'),
+        to: 'static'
       }
     ]),
     new webpack.IgnorePlugin(/vertx/),
