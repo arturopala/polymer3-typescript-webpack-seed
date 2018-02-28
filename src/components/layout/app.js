@@ -39,10 +39,41 @@ export class MyApp extends PolymerElement {
           background-color: var(--app-drawer-background-color);
         }
       }
+
+      .drawer-list {
+        margin: 0 20px;
+      }
+
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        text-decoration: none;
+        color: var(--app-secondary-color);
+        line-height: 40px;
+      }
+
+      .drawer-list a.iron-selected {
+        color: black;
+        font-weight: bold;
+      }
     </style>
+
+    <!-- app-location binds to the app's URL -->
+    <app-location use-hash-as-path route="{{route}}"></app-location>
+
+    <!-- this app-route manages the top-level routes -->
+    <app-route
+        route="{{route}}"
+        pattern="/sheet/:sheet"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
 
     <app-drawer-layout fullbleed>
       <app-drawer slot="drawer">
+        <iron-selector selected="{{routeData.sheet}}" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a name="01" href="#/sheet/01">Sheet 01</a>
+          <a name="02" href="#/sheet/02">Sheet 02</a>
+        </iron-selector>
         <slot name="drawercontent"></slot>
       </app-drawer>
       <app-header-layout>
@@ -55,6 +86,11 @@ export class MyApp extends PolymerElement {
 
         <slot></slot>
 
+        <!-- iron-pages selects the view based on the active route -->
+        <iron-pages selected="[[routeData.sheet]]" attr-for-selected="name">
+          <sheet-01 name="01" route="{{subroute}}"></sheet-01>
+        </iron-pages>
+
       </app-header-layout>
     </app-drawer-layout>
     `;
@@ -64,6 +100,9 @@ export class MyApp extends PolymerElement {
       return {
         name: {
           type: String
+        },
+        route: {
+          type: Object
         }
       };
     }
