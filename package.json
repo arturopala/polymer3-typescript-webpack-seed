@@ -1,7 +1,7 @@
 {
-  "name": "polymer-template",
+  "name": "ml-worthing-deeplearn-js",
   "version": "1.0.0",
-  "description": "polymer 3.x + webpack + typescript template",
+  "description": "Maching Learning in Worthing",
   "author": "arturopala",
   "main": "index.js",
   "license": "MIT",

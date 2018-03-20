@@ -1,22 +1,11 @@
 import { Element as PolymerElement, html } from '@polymer/polymer/polymer-element';
-import { MyStyles } from '../styles';
+import { MLExercise01 } from '../../ml-exercise-01';
 
 export class Sheet01 extends PolymerElement {
 
     static get template() { return html`
-
-      <style include="my-styles">
-
-      </style>
-
-      <div class="box">
-        <h1>View One</h1>
-        <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.
-        Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.
-        Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+      <div class="box" id="output-ml-01" style="padding: 2rem;">
       </div>
-
     `;
     }
 
@@ -28,5 +17,7 @@ export class Sheet01 extends PolymerElement {
 
     ready() {
       super.ready();
+      let outputElement = this.root.getElementById('output-ml-01');
+      MLExercise01.start(outputElement);
     }
 }

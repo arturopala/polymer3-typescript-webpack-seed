@@ -64,15 +64,14 @@ export class MyApp extends PolymerElement {
     <!-- this app-route manages the top-level routes -->
     <app-route
         route="{{route}}"
-        pattern="/sheet/:sheet"
+        pattern="/exercise/:exercise"
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
     <app-drawer-layout fullbleed>
       <app-drawer slot="drawer">
         <iron-selector selected="{{routeData.sheet}}" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="01" href="#/sheet/01">Sheet 01</a>
-          <a name="02" href="#/sheet/02">Sheet 02</a>
+          <a name="01" href="#/exercise/01">Exercise 01</a>
         </iron-selector>
         <slot name="drawercontent"></slot>
       </app-drawer>
@@ -87,7 +86,7 @@ export class MyApp extends PolymerElement {
         <slot></slot>
 
         <!-- iron-pages selects the view based on the active route -->
-        <iron-pages selected="[[routeData.sheet]]" attr-for-selected="name">
+        <iron-pages selected="[[routeData.exercise]]" attr-for-selected="name">
           <sheet-01 name="01" route="{{subroute}}"></sheet-01>
         </iron-pages>
 
